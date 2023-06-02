@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;600&display=swap');
+
+:root {
+    /* variavel pra utilização global. No css variavel começa com --, usando - para separar as palavras*/
+    --cor-primaria: #F6F1F1;
+    --cor-secundaria: #146C94;
+    --cor-terciaria: #19A7CE;
+    --cor-hover: #AFD3E2;
+    --fonte-primaria: 'Krona One', sans-serif;
+    --fonte-secundaria: 'Montserrat', sans-serif;
+}
+
+* { /*o "*" no inicio é para selecionar TODOS os elementos da página */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* height: 100vh; o vh corresponde a altura do view port (altura do navegador) */
+    /* COMO MEU MONITOR TA COM A LETRA AUMENTADA O RECOMENDADO NESSE CASO SERIA 80vh ou até mesmo 70vh */
+    box-sizing: border-box; /*utilizado para não deixar o elemento filho ultrapassar o elemento pai */
+    background-color: var(--cor-primaria); /*cor de fundo*/
+    color: var(--cor-secundaria); /*cor da fonte*/
+
+}
+
+.cabecalho {
+    padding: 2% 0% 0% 15%; /* a ordem é cima, direita, inferior, esquerda */
+}
+
+.cabecalho__menu {
+    display: flex; /* FLEXBOX SEMPRE NO ELEEMENTO PAI. SEMPRE */
+    gap: 80px;
+}
+
+.cabecalho__menu__link {
+    font-family: var(--fonte-secundaria);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--cor-terciaria);
+    text-decoration: none;
+}
+
+.apresentacao { 
+    padding: 5% 15%;
+    display: flex; /* utilizar o flexbox para deixar os elementos filhos separados horizontalmente no elemento pai (há outras possibilidades - ler documentação: https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
+    align-items: center;
+    justify-content: space-between;
+    gap: 5.12rem;
+}
+
+.apresentacao__conteudo {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /*espaçamento */
+}
+
+.apresentacao__conteudo__titulo {
+    font-size: 2.25rem; /* 1 rem corresponde a 16px */
+    font-family: var(--fonte-primaria);
+}
+
+.titulo-destaque { /* o "." corresponde a classe que esta sendo chamada*/
+    color: var(--cor-terciaria);
+}
+
+.apresentacao__conteudo__texto {
+    font-size: 1.5rem;
+    font-family: var(--fonte-secundaria);
+}
+
+.apresentacao__conteudo__texto a{
+    text-decoration: none;
+    color: var(--cor-terciaria);
+}
+
+.apresentacao__links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+}
+
+.apresentacao__links__subtitulo {
+    font-family: var(--fonte-primaria);
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+.apresentacao__links__navegacao {
+     /* background-color: #22D4FD; */   /*usar ctrl + k + c para atalho de comentário */
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    width: 50%;
+    text-align: center;
+    border-radius: 8px;
+    border: 2px solid var(--cor-terciaria);
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 21.5px 0; /*primeiro valor corresponde ao vertical, o 2o ao horizontal */
+    text-decoration: none; /*para retirar a decoração do elemento ancora <a> */
+    color: var(--cor-secundaria);
+    font-family: var(--fonte-secundaria);
+}
+
+.apresentacao__links__link:hover { /*para estilizar quando tiver com o mouse em cima do elemento. NÃO FUNCIONA COM LINKS */
+    background-color: var(--cor-hover);
+    padding: 3%;
+}
+
+.apresentao__imagem {
+    width: 50%;
+}
+
+.rodape {
+    color: var(--cor-primaria);
+    background-color: var(--cor-terciaria);
+    padding: 24px;
+    text-align: center;
+    font-family: var(--fonte-secundaria);
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+/* media-query - responsibilidade */
+
+@media (max-width: 1200px) {
+    .cabecalho {
+        padding: 10%;   
+    }
+
+    .cabecalho__menu {
+        /*não precisa reescrever "display:flex" pq ja esta definido la em cima, dentro da classe. */
+        justify-content: center;
+    }
+    
+    .apresentacao {
+        flex-direction: column-reverse;
+        padding: 5%;
+    }
+
+    .apresentacao__conteudo {
+        width: auto; /*pra ficar de acordo com tamanho total do elemento pai */
+    }
+
+
+}
